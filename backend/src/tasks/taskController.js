@@ -1,7 +1,17 @@
-import { taskSchema } from './taskModel.js';
+import mongoose from 'mongoose';
 
-const Task = mongoose.model('Task', taskSchema);
+import { TaskSchema } from './taskModel.js';
 
-const addTask = (req, res) => {
-    
+const Task = mongoose.model('Task', TaskSchema);
+
+export const addTask = (req, res) => {
+    const task = new Task(req.body);
+
+    task.save((err, Task) => {
+        if (err) {
+            res.send(err);
+        }
+
+        res.json(Task);
+    })
 }
