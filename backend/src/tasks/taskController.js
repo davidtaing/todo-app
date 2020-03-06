@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Query } from 'mongoose';
 
 import { TaskSchema } from './taskModel.js';
 
@@ -18,6 +18,18 @@ export const addTask = (req, res) => {
     const task = new Task(req.body);
 
     task.save((err, Task) => {
+        if (err) {
+            res.send(err);
+        }
+
+        res.json(Task);
+    })
+}
+
+export const updateTask  = (req, res) => {
+    const options = { new: true };
+
+    Task.findByIdAndUpdate(req.body._id, req.body, options, (err, Task) => {
         if (err) {
             res.send(err);
         }
