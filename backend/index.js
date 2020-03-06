@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 3000;
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/todoapp', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 });
 
 app.use(express.urlencoded({extended: true}));
