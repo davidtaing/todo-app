@@ -1,7 +1,19 @@
 import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/todo-app', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+app.use(cors());
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
