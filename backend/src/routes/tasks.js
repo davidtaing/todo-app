@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { addTask, getTasks } from '../tasks/taskController';
+import { addTask, getTasks, deleteTask } from '../tasks/taskController';
 
 const router = express.Router();
 
@@ -10,8 +10,6 @@ router.route('/')
     .put((req, res) => {
         res.json("Updated task");
     })
-    .delete((req, res) => {
-        res.json("Deleted task");
-    })
+    .delete(deleteTask)
 
 module.exports = router;

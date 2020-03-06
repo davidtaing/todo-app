@@ -25,3 +25,13 @@ export const addTask = (req, res) => {
         res.json(Task);
     })
 }
+
+export const deleteTask = (req, res) => {
+    Task.findByIdAndDelete(req.body._id, (err, Task) => {
+        if (err) {
+            res.send(err);
+        }
+
+        res.json(Task);
+    })
+}
