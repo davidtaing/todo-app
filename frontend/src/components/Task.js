@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 
 import DeleteTaskButton from './DeleteTaskButton'
 
-const Task = ({ data, onDeleteTaskClick }) => {
+const Task = ({ data, onTaskChecked, onDeleteTaskClick }) => {
     const titleText = (data.title || "Add a title for this task.");
-    const [complete, setComplete] = useState(false);
-    
-    const onCheckboxClick = (e) => {setComplete(! complete)};
+    const complete = data.complete;
 
     return (
         <div key={data._id}>
             <InputGroup className="mb-3">
                 <InputGroup.Prepend>
-                    <InputGroup.Checkbox aria-label="Checkbox for task" onClick={onCheckboxClick} />
+                    <InputGroup.Checkbox aria-label="Checkbox for task" onClick={(e) => onTaskChecked(e, data)} />
                 </InputGroup.Prepend>
                 <FormControl aria-label="Text input with checkbox" defaultValue={titleText} />
                 { complete ? (<DeleteTaskButton taskId={data._id} onDeleteTaskClick={onDeleteTaskClick}/>) : null}
