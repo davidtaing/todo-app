@@ -5,7 +5,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import DeleteTaskButton from './DeleteTaskButton'
 
 const Task = ({ data, onDeleteTaskClick }) => {
-    const [value] = useState(data.title || "Add a title for this task.");
+    const titleText = (data.title || "Add a title for this task.");
     const [complete, setComplete] = useState(false);
     
     const onCheckboxClick = (e) => {setComplete(! complete)};
@@ -16,7 +16,7 @@ const Task = ({ data, onDeleteTaskClick }) => {
                 <InputGroup.Prepend>
                     <InputGroup.Checkbox aria-label="Checkbox for task" onClick={onCheckboxClick} />
                 </InputGroup.Prepend>
-                <FormControl aria-label="Text input with checkbox" defaultValue={value} />
+                <FormControl aria-label="Text input with checkbox" defaultValue={titleText} />
                 { complete ? (<DeleteTaskButton taskId={data._id} onDeleteTaskClick={onDeleteTaskClick}/>) : null}
             </InputGroup>
         </div>
