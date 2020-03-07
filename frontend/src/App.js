@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import AddTaskButton from './components/AddTaskButton';
 import TaskList from './components/TaskList';
+import SaveToDbButton from './components/SaveToDbButton';
 
 const data = [
   {
@@ -86,6 +87,7 @@ function App() {
     <div className="App">
       <AddTaskButton onClick={onAddTaskClick} />
       <TaskList tasks={tasks} onTaskChecked={onTaskChecked} onDeleteTaskClick={onDeleteTaskClick} />
+      <SaveToDbButton onClick={() => { console.log("Saved changes to the database lol.") }} />
     </div>
   );
 }
