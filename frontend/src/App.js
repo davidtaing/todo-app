@@ -3,7 +3,6 @@ import AddTaskButton from './components/AddTaskButton';
 import TaskList from './components/TaskList';
 
 function App() {
-  // eslint-disable-next-line
   const [tasks, setTasks] = useState([
     {
       title: "Do Something",
@@ -19,13 +18,26 @@ function App() {
     },
   ]);
 
-  const handleAddTaskClick = (tasks) => {
+  const onAddTaskClick = () => {
+    // create empty data object
+    const data = {
+      title: "",
+      desc: ""
+    };
+
+    // create new array with new task added (shallow-copied array)
+    const taskList = tasks.slice();
+    taskList.push(data);
+
+    // Update State
+    setTasks(taskList);
+
     console.log("Added Task");
   };
 
   return (
     <div className="App">
-      <AddTaskButton onClick={handleAddTaskClick} />
+      <AddTaskButton onClick={onAddTaskClick} />
       <TaskList tasks={tasks} />
     </div>
   );
