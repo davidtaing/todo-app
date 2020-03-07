@@ -1,10 +1,10 @@
 import React from 'react';
 import Task from './Task'
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, onDeleteTaskClick }) => {
     return (
         <div className="taskList">
-            { tasks.map((task) => (<Task data={task}/>)) }
+            { tasks.map((task) => (<Task data={task} onDeleteTaskClick={onDeleteTaskClick}/>)) }
         </div>
     );
 };
