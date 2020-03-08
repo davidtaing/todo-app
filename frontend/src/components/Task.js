@@ -6,7 +6,6 @@ import DeleteTaskButton from './DeleteTaskButton'
 
 const Task = ({ data, onTaskChecked, onDeleteTaskClick }) => {
     const titleText = (data.title || "Add a title for this task.");
-    const complete = data.complete;
 
     return (
         <div key={data._id}>
@@ -14,8 +13,8 @@ const Task = ({ data, onTaskChecked, onDeleteTaskClick }) => {
                 <InputGroup.Prepend>
                     <InputGroup.Checkbox aria-label="Checkbox for task" onClick={(e) => onTaskChecked(e, data)} />
                 </InputGroup.Prepend>
-                <FormControl aria-label="Text input with checkbox" defaultValue={titleText} />
-                { complete ? (<DeleteTaskButton taskId={data._id} onDeleteTaskClick={onDeleteTaskClick}/>) : null}
+                <FormControl defaultValue={titleText} disabled={data.complete} aria-label="Text input with checkbox" />
+                { data.complete ? (<DeleteTaskButton taskId={data._id} onDeleteTaskClick={onDeleteTaskClick}/>) : null}
             </InputGroup>
         </div>
     );

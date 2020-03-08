@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import AddTaskButton from './components/AddTaskButton';
 import TaskList from './components/TaskList';
 import SaveToDbButton from './components/SaveToDbButton';
+import ResetButton from './components/ResetButton';
 
 const data = [
   {
@@ -73,7 +77,7 @@ function App() {
     }
   }
 
-  const createTask = (_id = taskCounter.toString() , title = "", desc = "", complete=false) => {
+  const createTask = (_id = taskCounter.toString(), title = "", desc = "", complete = false) => {
     return {
       _id,
       title,
@@ -85,9 +89,17 @@ function App() {
   // RENDER
   return (
     <div className="App">
-      <AddTaskButton onClick={onAddTaskClick} />
-      <TaskList tasks={tasks} onTaskChecked={onTaskChecked} onDeleteTaskClick={onDeleteTaskClick} />
-      <SaveToDbButton onClick={() => { console.log("Saved changes to the database lol.") }} />
+      <Container>
+        <Row>
+          <Col sm={3}>Menu</Col>
+          <Col sm={9} className="main-content">
+            <TaskList tasks={tasks} onTaskChecked={onTaskChecked} onDeleteTaskClick={onDeleteTaskClick} />
+            <AddTaskButton onClick={onAddTaskClick} />
+            <SaveToDbButton onClick={() => console.log("Saved changes to the database lol.")} />
+            <ResetButton onClick={() => console.log("Reset changes to the database lol.")} />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
