@@ -13,7 +13,7 @@ const Task = ({ data, onTaskChecked, onDeleteTaskClick }) => {
                 <InputGroup.Prepend>
                     <InputGroup.Checkbox aria-label="Checkbox for task" onClick={(e) => onTaskChecked(e, data)} />
                 </InputGroup.Prepend>
-                <FormControl defaultValue={titleText} disabled={data.complete} aria-label="Text input with checkbox" />
+                <FormControl placeholder={titleText} disabled={data.complete} aria-label="Text input with checkbox" />
                 { data.complete ? (<DeleteTaskButton taskId={data._id} onDeleteTaskClick={onDeleteTaskClick}/>) : null}
             </InputGroup>
         </div>
