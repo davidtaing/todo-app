@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 
-const AddTaskButton = ({ onClick }) => {
+const AddTaskButton = ({ onAddTaskClick }) => {
     return (
-        <Button variant="light" size="lg" onClick={onClick} block>
+        <Button variant="light" size="lg" onClick={onAddTaskClick} block>
             Add Task
         </Button>
     );

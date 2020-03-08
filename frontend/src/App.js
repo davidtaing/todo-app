@@ -33,7 +33,6 @@ function App() {
   const [taskCounter, setTaskCounter] = useState(3);
 
   const onAddTaskClick = () => {
-    console.log("added task");
     const taskList = tasks.slice();
     const newTask = createTask();
 
@@ -93,7 +92,7 @@ function App() {
           <Col sm={3}>Menu</Col>
           <Col sm={9} className="main-content">
             <TaskList tasks={tasks} onTaskChecked={onTaskChecked} onDeleteTaskClick={onDeleteTaskClick} />
-            <AddTaskButton onClicak={onAddTaskClick} />
+            <AddTaskButton onAddTaskClick={onAddTaskClick} />
           </Col>
         </Row>
       </Container>
