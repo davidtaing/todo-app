@@ -5,8 +5,6 @@ import Col from 'react-bootstrap/Col';
 
 import AddTaskButton from './components/AddTaskButton';
 import TaskList from './components/TaskList';
-import SaveToDbButton from './components/SaveToDbButton';
-import ResetButton from './components/ResetButton';
 
 const data = [
   {
@@ -35,6 +33,7 @@ function App() {
   const [taskCounter, setTaskCounter] = useState(3);
 
   const onAddTaskClick = () => {
+    console.log("added task");
     const taskList = tasks.slice();
     const newTask = createTask();
 
@@ -94,9 +93,7 @@ function App() {
           <Col sm={3}>Menu</Col>
           <Col sm={9} className="main-content">
             <TaskList tasks={tasks} onTaskChecked={onTaskChecked} onDeleteTaskClick={onDeleteTaskClick} />
-            <AddTaskButton onClick={onAddTaskClick} />
-            <SaveToDbButton onClick={() => console.log("Saved changes to the database lol.")} />
-            <ResetButton onClick={() => console.log("Reset changes to the database lol.")} />
+            <AddTaskButton onClicak={onAddTaskClick} />
           </Col>
         </Row>
       </Container>
