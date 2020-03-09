@@ -1,6 +1,5 @@
 import React from 'react';
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
+import Card from 'react-bootstrap/Card';
 
 import DeleteTaskButton from './DeleteTaskButton'
 
@@ -9,13 +8,13 @@ const Task = ({ data, onTaskChecked, onDeleteTaskClick }) => {
 
     return (
         <div key={data._id}>
-            <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                    <InputGroup.Checkbox aria-label="Checkbox for task" onClick={(e) => onTaskChecked(e, data)} />
-                </InputGroup.Prepend>
-                <FormControl placeholder={titleText} disabled={data.complete} aria-label="Text input with checkbox" />
-                { data.complete ? (<DeleteTaskButton taskId={data._id} onDeleteTaskClick={onDeleteTaskClick}/>) : null}
-            </InputGroup>
+            <Card bg="secondary" text="white" >
+                <Card.Body>
+                    <Card.Title>{titleText}</Card.Title>
+                    <Card.Text>{data.desc}</Card.Text>
+                    { !data.complete ? (<DeleteTaskButton taskId={data._id} onDeleteTaskClick={onDeleteTaskClick}/>) : null}
+                </Card.Body>
+            </Card>
         </div>
     );
 }

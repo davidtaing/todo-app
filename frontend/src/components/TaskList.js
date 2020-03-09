@@ -1,5 +1,6 @@
 import React from 'react';
-import Task from './Task'
+import Task from './Task';
+
 
 const TaskList = ({ tasks, onTaskChecked, onDeleteTaskClick }) => {
     return (

@@ -6,7 +6,7 @@ const DeleteTaskButton = ({ taskId, onDeleteTaskClick }) => {
     return (
         <InputGroup.Append>
             <Button 
-                variant="outline-danger" 
+                variant="danger" 
                 onClick={ () => onDeleteTaskClick(taskId) }
             >Delete</Button>
         </InputGroup.Append>
