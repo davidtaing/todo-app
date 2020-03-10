@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import TaskListTitle from './components/TaskListTitle';
 import TaskListRow from './components/TaskListRow';
 
 const data = [
@@ -47,7 +48,7 @@ function App() {
             </ul>
             <br />
             <ul style={{ "list-style-type": "none" }}>
-              <li><h1>Lists</h1></li>
+              <li><h1>Lists</h1></li> 
               <li><p>All Tasks</p></li>
               <li><p>Groceries</p></li>
               <li><p>Work</p></li>
@@ -58,16 +59,14 @@ function App() {
             <h1>Tasks</h1>
             <article>
               <ListGroup>
-                {/* TODO Refactor out to Task List Tilte.*/}
-                <ListGroup.Item variant='dark'>
-                  <div className="TaskListTitle">
-                    <h2>Today</h2>
-                  </div>
-                </ListGroup.Item>
-                {/* TODO Refactor out to Task List Row.*/}
-                <TaskListRow data={{title: "Task One"}}/>
-                <TaskListRow data={{title: "Task Two"}}/>
-                <TaskListRow data={{title: "Task Three"}}/>
+                <TaskListTitle text="Today" />
+                <TaskListRow data={{title: "Task One"}} />
+                <TaskListRow data={{title: "Task Two"}} />
+                <TaskListRow data={{title: "Task Three"}} />
+              </ListGroup>
+              <ListGroup>
+                <TaskListTitle text="Tomorrow" />
+                <TaskListRow data={{title: "Task Four"}} />
               </ListGroup>
             </article>
           </Col>
