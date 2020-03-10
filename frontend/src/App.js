@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import TaskListRow from './components/TaskListRow';
 
 const data = [
   {
@@ -40,12 +41,12 @@ function App() {
       <Container>
         <Row>
           <Col sm={3}>
-            <ul style={{ "list-style-type": "none" }} >
+            <ul style={{ "list-style-type": "none" }}>
               <li><h1>Menu</h1></li>
               <li><p>Add Task</p></li>
             </ul>
             <br />
-            <ul style={{ "list-style-type": "none" }} >
+            <ul style={{ "list-style-type": "none" }}>
               <li><h1>Lists</h1></li>
               <li><p>All Tasks</p></li>
               <li><p>Groceries</p></li>
@@ -58,30 +59,15 @@ function App() {
             <article>
               <ListGroup>
                 {/* TODO Refactor out to Task List Tilte.*/}
-                <ListGroup.Item variant='dark' >
+                <ListGroup.Item variant='dark'>
                   <div className="TaskListTitle">
                     <h2>Today</h2>
                   </div>
                 </ListGroup.Item>
                 {/* TODO Refactor out to Task List Row.*/}
-                <ListGroup.Item variant='light'>
-                  <div className="TaskListRow" >
-                    <input type="checkbox" />
-                    <label>Task One</label>
-                  </div>
-                </ListGroup.Item>
-                <ListGroup.Item variant='light'>
-                  <div className="TaskListRow" >
-                    <input type="checkbox" />
-                    <label>Task Two</label>
-                  </div>
-                </ListGroup.Item>
-                <ListGroup.Item variant='light'>
-                  <div className="TaskListRow" >
-                    <input type="checkbox" />
-                    <label>Task Three</label>
-                  </div>
-                </ListGroup.Item>
+                <TaskListRow data={{title: "Task One"}}/>
+                <TaskListRow data={{title: "Task Two"}}/>
+                <TaskListRow data={{title: "Task Three"}}/>
               </ListGroup>
             </article>
           </Col>
