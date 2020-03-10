@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 const data = [
   {
@@ -37,14 +39,56 @@ function App() {
     <div className="App">
       <Container>
         <Row>
-          <Col sm={3}>Menu</Col>
-          <Col sm={9} className="main-content">
-
+          <Col sm={3}>
+            <ul style={{ "list-style-type": "none" }} >
+              <li><h1>Menu</h1></li>
+              <li><p>Add Task</p></li>
+            </ul>
+            <br />
+            <ul style={{ "list-style-type": "none" }} >
+              <li><h1>Lists</h1></li>
+              <li><p>All Tasks</p></li>
+              <li><p>Groceries</p></li>
+              <li><p>Work</p></li>
+              <li><p>Add New List</p></li>
+            </ul>
+          </Col>
+          <Col sm className="main-content">
+            <h1>Tasks</h1>
+            <article>
+              <ListGroup>
+                {/* TODO Refactor out to Task List Tilte.*/}
+                <ListGroup.Item variant='dark' >
+                  <div className="TaskListTitle">
+                    <h2>Today</h2>
+                  </div>
+                </ListGroup.Item>
+                {/* TODO Refactor out to Task List Row.*/}
+                <ListGroup.Item variant='light'>
+                  <div className="TaskListRow" >
+                    <input type="checkbox" />
+                    <label>Task One</label>
+                  </div>
+                </ListGroup.Item>
+                <ListGroup.Item variant='light'>
+                  <div className="TaskListRow" >
+                    <input type="checkbox" />
+                    <label>Task Two</label>
+                  </div>
+                </ListGroup.Item>
+                <ListGroup.Item variant='light'>
+                  <div className="TaskListRow" >
+                    <input type="checkbox" />
+                    <label>Task Three</label>
+                  </div>
+                </ListGroup.Item>
+              </ListGroup>
+            </article>
           </Col>
         </Row>
       </Container>
     </div>
   );
 }
-
+    
 export default App;
