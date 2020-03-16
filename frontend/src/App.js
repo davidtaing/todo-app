@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
 
-import TaskListTitle from './components/TaskListTitle';
-import TaskListRow from './components/TaskListRow';
 import Menu from './components/Menu';
+import TaskList from './components/TaskList';
+
 
 const data = [
   {
@@ -36,22 +35,10 @@ function App() {
       <Container>
         <Row>
           <Col sm={3}>
-            <Menu />
+            <Menu />  
           </Col>
           <Col sm className="main-content">
-            <h1>Tasks</h1>
-            <article>
-              <ListGroup>
-                <TaskListTitle text="Today" />
-                <TaskListRow data={{title: "Task One"}} />
-                <TaskListRow data={{title: "Task Two"}} />
-                <TaskListRow data={{title: "Task Three"}} />
-              </ListGroup>
-              <ListGroup>
-                <TaskListTitle text="Tomorrow" />
-                <TaskListRow data={{title: "Task Four"}} />
-              </ListGroup>
-            </article>
+            <TaskList />
           </Col>
         </Row>
       </Container>
