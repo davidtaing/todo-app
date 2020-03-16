@@ -1,4 +1,5 @@
 import React from 'react';
+import GroupMenu from './GroupMenu';
 
 const Menu = () => {
     return (
@@ -8,13 +9,7 @@ const Menu = () => {
                 <li><p>Add Task</p></li>
             </ul>
             <br />
-            <ul style={{ "list-style-type": "none" }}>
-                <li><h1>Lists</h1></li>
-                <li><p>All Tasks</p></li>
-                <li><p>Groceries</p></li>
-                <li><p>Work</p></li>
-                <li><p>Add New List</p></li>
-            </ul>
+            <GroupMenu />
         </div>
     );
 }
