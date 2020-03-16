@@ -6,6 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 import TaskListTitle from './components/TaskListTitle';
 import TaskListRow from './components/TaskListRow';
+import Menu from './components/Menu';
 
 const data = [
   {
@@ -29,31 +30,13 @@ const data = [
 ];
 
 function App() {
-  // eslint-disable-next-line
-  const [tasks, setTasks] = useState(data);
-  // eslint-disable-next-line
-  const [deletedTasks, setDeletedTasks] = useState([]);
-  // eslint-disable-next-line
-  const [taskCounter, setTaskCounter] = useState(3);
-
   // RENDER
   return (
     <div className="App">
       <Container>
         <Row>
           <Col sm={3}>
-            <ul style={{ "list-style-type": "none" }}>
-              <li><h1>Menu</h1></li>
-              <li><p>Add Task</p></li>
-            </ul>
-            <br />
-            <ul style={{ "list-style-type": "none" }}>
-              <li><h1>Lists</h1></li> 
-              <li><p>All Tasks</p></li>
-              <li><p>Groceries</p></li>
-              <li><p>Work</p></li>
-              <li><p>Add New List</p></li>
-            </ul>
+            <Menu />
           </Col>
           <Col sm className="main-content">
             <h1>Tasks</h1>
