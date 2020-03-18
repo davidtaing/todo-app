@@ -18,21 +18,21 @@ const initialState = {
       title: "Do Something",
       desc: "This is my first task.",
       group: "General",
-      complete: false
+      completed: false
     },
     {
       _id: "1",
       title: "Do Another Thing",
       desc: "This is my second task.",
       group: "General",
-      complete: false
+      completed: false
     },
     {
       _id: "2",
       title: "Walk The Dog",
       desc: "I don't actually have a dog.",
       group: "Exercise",
-      complete: false
+      completed: false
     },
   ]
 };

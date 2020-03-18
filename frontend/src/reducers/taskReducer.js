@@ -6,10 +6,15 @@ const taskReducer = (state, action) => {
         action.data
       ];
     case 'TOGGLE_TASK':
-      return state.map(task =>
-        (task._id === action._id)
-          ? { ...task, completed: !task.completed }
-          : task)
+      const result = {
+        tasks: state.tasks.map(task =>
+          (task._id === action._id)
+            ? { ...task, completed: !task.completed }
+            : task
+        )
+      }
+      console.log(result);
+      return result;
     default:
       throw new Error();
   }
