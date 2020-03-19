@@ -13,8 +13,6 @@ const taskReducer = (state, action) => {
             : task
         )
       }
-      console.log(state);
-      console.log(result);
       return result;
     default:
       throw new Error();

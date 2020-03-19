@@ -11,7 +11,7 @@ const TaskListRow = ({data}) => {
         <ListGroup.Item variant='light'>
             <div className="TaskListRow" >
                 <input type="checkbox" onChange={() => dispatch(toggleTask(data._id))}/>
-                <label>{data.title}</label>
+                <label>{data.completed === false ? data.title : (<s>{data.title}</s>)}</label>
             </div>
         </ListGroup.Item>
     );
