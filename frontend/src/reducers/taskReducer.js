@@ -15,8 +15,10 @@ const taskReducer = (state, action) => {
       }
       return result;
     case 'DELETE_TASK':
-      console.log(`Task deleted (id: ${action.data._id})`);
-      return state;
+      let tasks = state.tasks.slice(0);
+      let index = tasks.findIndex((task) => task._id == action.data._id)
+      tasks.splice(index, 1);
+      return { tasks: tasks };
     default:
       throw new Error();
   }
