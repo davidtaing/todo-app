@@ -10,7 +10,7 @@ const TaskListRow = ({ data }) => {
     const dispatch = useContext(DispatchContext);
 
     return (
-        <ListGroup.Item variant='light'>
+        <ListGroup.Item variant='light' key={data._id}>
             <div className="TaskListRow" >
                 <input type="checkbox" onChange={() => dispatch(toggleTask(data._id))} />
                 {data.completed === false ?
