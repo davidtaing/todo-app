@@ -1,13 +1,14 @@
 import React, { useContext, Fragment } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Button from 'react-bootstrap/Button';
 
 import { DispatchContext } from '../App';
 import { toggleTask } from '../actions/taskActions';
 
+import DeleteButton from './DeleteButton';
+
 const TaskListRow = ({ data }) => {
     const dispatch = useContext(DispatchContext);
-    
+
     return (
         <ListGroup.Item variant='light'>
             <div className="TaskListRow" >
@@ -17,7 +18,7 @@ const TaskListRow = ({ data }) => {
                     (
                         <Fragment>
                             <label><s>{data.title}</s></label>
-                            <Button variant="danger" size="sm" style={{float: "right"}}>Delete</Button>
+                            <DeleteButton _id={data._id}></DeleteButton>
                         </Fragment>
                     )
                 }

@@ -15,6 +15,7 @@ const taskReducer = (state, action) => {
       }
       return result;
     case 'DELETE_TASK':
+      console.log(`Task deleted (id: ${action.data._id})`);
       return state;
     default:
       throw new Error();

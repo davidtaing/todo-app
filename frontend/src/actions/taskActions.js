@@ -19,3 +19,10 @@ export const toggleTask = (_id) => {
         data: {_id: _id}
     };
 }
+
+export const deleteTask = (_id) => {
+    return {
+        type: 'DELETE_TASK',
+        data: {_id: _id}
+    };
+}
