@@ -14,6 +14,8 @@ const taskReducer = (state, action) => {
         )
       }
       return result;
+    case 'DELETE_TASK':
+      return state;
     default:
       throw new Error();
   }
