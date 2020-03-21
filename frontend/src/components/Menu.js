@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import MainMenu from './MainMenu';
 import GroupMenu from './GroupMenu';
 
+import { DispatchContext } from '../App';
+import { addTask } from '../actions/taskActions';
+
 const Menu = () => {
+    const dispatch = useContext(DispatchContext);
+
     return (
         <div>
-            <ul style={{ "list-style-type": "none" }}>
-                <li><h1>Menu</h1></li>
-                <li><p>Add Task</p></li>
-            </ul>
+            <MainMenu onAddClick={() => dispatch(addTask())}/>
             <br />
             <GroupMenu />
         </div>
     );
 }
-
 export default Menu;
