@@ -3,7 +3,6 @@ const taskReducer = (state, action) => {
   let index;
 
   switch (action.type) {
-    // TODO Implement Add Task
     case 'ADD_TASK':
       tasks = state.tasks.slice(0);
       tasks.push(action.data);
