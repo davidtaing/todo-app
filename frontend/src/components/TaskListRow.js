@@ -5,7 +5,7 @@ import FormControl from 'react-bootstrap/FormControl';
 
 
 import { DispatchContext } from '../App';
-import { toggleTask } from '../actions/taskActions';
+import { toggleTask, updateTask } from '../actions/taskActions';
 
 import DeleteButton from './DeleteButton';
 
@@ -22,14 +22,13 @@ const TaskListRow = ({ data }) => {
                     <FormControl
                         style={data.completed ? { "text-decoration": "line-through" } : null}
                         defaultValue={data.title}
-                        onBlur={() => console.log("title changed")}
+                        onBlur={(event) => dispatch(updateTask(data._id, event.target.value, data.desc, data.group, data.completed))}
                         disabled={data.completed ? true : false} />
                     { data.completed &&
                         (<InputGroup.Append>
                             <DeleteButton _id={data._id}></DeleteButton>
                         </InputGroup.Append>)
                     }
-
                 </InputGroup>
 
             </div>
