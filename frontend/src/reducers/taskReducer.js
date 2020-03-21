@@ -5,10 +5,11 @@ const taskReducer = (state, action) => {
   switch (action.type) {
     // TODO Implement Add Task
     case 'ADD_TASK':
-      return [
-        ...state,
-        action.data
-      ];
+      tasks = state.tasks.slice(0);
+      tasks.push(action.data);
+      return {
+        ...state, tasks: tasks
+      };
     case 'TOGGLE_TASK':
       return {
         tasks: state.tasks.map((task) => 
