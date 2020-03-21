@@ -11,6 +11,7 @@ import DeleteButton from '../components/Tasks/DeleteButton';
 
 const TaskListRow = ({ data }) => {
     const dispatch = useContext(DispatchContext);
+    const deleteBtnCond = (data.completed || data.title === '');
 
     return (
         <ListGroup.Item variant='light' key={data._id}>
@@ -25,13 +26,12 @@ const TaskListRow = ({ data }) => {
                         placeholder="Enter a title for this task."
                         onBlur={(event) => dispatch(updateTask(data._id, event.target.value, data.desc, data.group, data.completed))}
                         disabled={data.completed ? true : false} />
-                    { data.completed &&
+                    { deleteBtnCond &&
                         (<InputGroup.Append>
                             <DeleteButton _id={data._id}></DeleteButton>
                         </InputGroup.Append>)
                     }
                 </InputGroup>
-
             </div>
         </ListGroup.Item>
     );
