@@ -4,10 +4,10 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 
 
-import { DispatchContext } from '../../App';
-import { toggleTask, updateTask } from '../../actions/taskActions';
+import { DispatchContext } from '../App';
+import { toggleTask, updateTask } from '../actions/taskActions';
 
-import DeleteButton from './DeleteButton';
+import DeleteButton from '../components/Tasks/DeleteButton';
 
 const TaskListRow = ({ data }) => {
     const dispatch = useContext(DispatchContext);
