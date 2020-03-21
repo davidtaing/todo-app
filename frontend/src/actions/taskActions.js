@@ -1,6 +1,6 @@
 let nextTaskId = 0;
 
-export const addTask = (_id = nextTaskId, title, desc, group, completed = null) => { 
+export const addTask = (_id = nextTaskId.toString(), title, desc, group, completed = null) => { 
     return {
         type: 'ADD_TASK',
         data: {
@@ -25,4 +25,17 @@ export const deleteTask = (_id) => {
         type: 'DELETE_TASK',
         data: {_id: _id}
     };
+}
+
+export const updateTask = (_id, title, desc, group, completed) => {
+    return {
+        type: 'UPDATE_TASK',
+        data: {
+            _id: _id,
+            title: title,
+            desc: desc,
+            group: group,
+            completed: completed
+        }
+    }
 }
