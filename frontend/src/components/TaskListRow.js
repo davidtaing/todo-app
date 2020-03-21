@@ -1,5 +1,8 @@
-import React, { useContext, Fragment } from 'react';
+import React, { useContext } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+
 
 import { DispatchContext } from '../App';
 import { toggleTask } from '../actions/taskActions';
@@ -12,16 +15,23 @@ const TaskListRow = ({ data }) => {
     return (
         <ListGroup.Item variant='light' key={data._id}>
             <div className="TaskListRow" >
-                <input type="checkbox" onChange={() => dispatch(toggleTask(data._id))} />
-                {data.completed === false ?
-                    (<label>{data.title}</label>) :
-                    (
-                        <Fragment>
-                            <label><s>{data.title}</s></label>
+                <InputGroup>
+                    <InputGroup.Prepend>
+                        <InputGroup.Checkbox onChange={() => dispatch(toggleTask(data._id))} />
+                    </InputGroup.Prepend>
+                    <FormControl
+                        style={data.completed ? { "text-decoration": "line-through" } : null}
+                        defaultValue={data.title}
+                        onBlur={() => console.log("title changed")}
+                        disabled={data.completed ? true : false} />
+                    { data.completed &&
+                        (<InputGroup.Append>
                             <DeleteButton _id={data._id}></DeleteButton>
-                        </Fragment>
-                    )
-                }
+                        </InputGroup.Append>)
+                    }
+
+                </InputGroup>
+
             </div>
         </ListGroup.Item>
     );
