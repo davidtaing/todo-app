@@ -14,21 +14,21 @@ export const StateContext = React.createContext();
 const initialState = {
   tasks: [
     {
-      _id: "0",
+      _id: 0,
       title: "Do Something",
       desc: "This is my first task.",
       group: "General",
       completed: false
     },
     {
-      _id: "1",
+      _id: 1,
       title: "Do Another Thing",
       desc: "This is my second task.",
       group: "General",
       completed: false
     },
     {
-      _id: "2",
+      _id: 2,
       title: "Walk The Dog",
       desc: "I don't actually have a dog.",
       group: "Exercise",

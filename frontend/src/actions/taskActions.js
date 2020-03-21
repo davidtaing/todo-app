@@ -1,6 +1,6 @@
-let nextTaskId = 0;
+let nextTaskId = 3;
 
-export const addTask = (_id = nextTaskId.toString(), title, desc, group, completed = null) => { 
+export const addTask = (_id = nextTaskId++, title, desc, group, completed = null) => { 
     return {
         type: 'ADD_TASK',
         data: {
