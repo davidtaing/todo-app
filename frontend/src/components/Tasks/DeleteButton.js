@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 
-import { DispatchContext } from '../App';
-import { deleteTask } from '../actions/taskActions';
+import { DispatchContext } from '../../App';
+import { deleteTask } from '../../actions/taskActions';
 
 const DeleteButton = ({_id}) => {
     const dispatch = useContext(DispatchContext);

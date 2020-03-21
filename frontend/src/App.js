@@ -3,8 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import Menu from './components/Menu';
-import TaskList from './components/TaskList';
+import Menu from './containers/Menu';
+import TaskList from './containers/TaskList';
 
 import taskReducer from './reducers/taskReducer';
 

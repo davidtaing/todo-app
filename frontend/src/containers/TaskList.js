@@ -3,8 +3,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 import { StateContext } from '../App';
 
-import TaskListTitle from './TaskListTitle';
-import TaskListRow from './TaskListRow';
+import TaskListTitle from '../components/Tasks/TaskListTitle';
+import TaskListRow from '../components/Tasks/TaskListRow';
 
 const TaskList = () => {
     const state = useContext(StateContext);

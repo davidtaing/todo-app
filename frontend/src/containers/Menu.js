@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
-import MainMenu from './MainMenu';
-import GroupMenu from './GroupMenu';
+import MainMenu from '../components/Menu/MainMenu';
+import GroupMenu from '../components/Menu/GroupMenu';
 
 import { DispatchContext } from '../App';
 import { addTask } from '../actions/taskActions';
