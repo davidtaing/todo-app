@@ -22,6 +22,7 @@ const TaskListRow = ({ data }) => {
                     <FormControl
                         style={data.completed ? { "text-decoration": "line-through" } : null}
                         defaultValue={data.title}
+                        placeholder="Enter a title for this task."
                         onBlur={(event) => dispatch(updateTask(data._id, event.target.value, data.desc, data.group, data.completed))}
                         disabled={data.completed ? true : false} />
                     { data.completed &&
